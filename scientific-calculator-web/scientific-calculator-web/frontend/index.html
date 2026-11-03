@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scientific Calculator</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <main class="app">
+    <section class="calc" aria-label="Calculator">
+      <header class="bar">
+        <button id="modeBtn" class="chip strong" type="button" title="Toggle degrees / radians">DEG</button>
+        <span id="memInd" class="chip mem hidden" title="Value stored in memory">M</span>
+        <span class="spacer"></span>
+        <button id="refBtn" class="chip" type="button">Functions</button>
+        <button id="themeBtn" class="chip" type="button" title="Switch light / dark theme">Theme</button>
+      </header>
+
+      <div class="display">
+        <div id="prev" class="prev" aria-live="polite"></div>
+        <input id="expr" autocomplete="off" autocapitalize="off" spellcheck="false"
+               placeholder="0" aria-label="Expression">
+        <div id="error" class="error" role="alert"></div>
+      </div>
+
+      <div id="keys" class="keys"></div>
+    </section>
+
+    <aside class="side" aria-label="History">
+      <div class="side-head">
+        <h2>History</h2>
+        <button id="clearHist" class="chip" type="button">Clear</button>
+      </div>
+      <ul id="history" class="history"></ul>
+      <p id="emptyHist" class="muted">No calculations yet.</p>
+    </aside>
+  </main>
+
+  <dialog id="refDialog">
+    <div class="dlg-head">
+      <h2>Functions &amp; constants</h2>
+      <button id="closeRef" class="chip" type="button">Close</button>
+    </div>
+    <p class="muted">Click an entry to insert it. Operators: <code>+ - * / // % ^ !</code></p>
+    <div id="refBody"></div>
+  </dialog>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
